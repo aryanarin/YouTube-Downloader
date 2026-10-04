@@ -1,0 +1,53 @@
+# Build directories
+build/
+build-*/
+cmake-build-*/
+
+# IDE files
+.vscode/
+.idea/
+*.user
+*.pro.user
+*.autosave
+
+# Qt Creator
+CMakeLists.txt.user*
+
+# Compiled files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# Qt generated files
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+
+# Temporary files
+*.log
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# Path data file
+path.dat
+
+# Downloaded videos (optional - comment out if you want to track test downloads)
+downloads/
+*.mp4
+*.mp3
+*.webm
+*.mkv
+
+# Binary dependencies (downloaded via download_dependencies.ps1, not committed)
+bin/*.exe
+bin/*.zip
+
+# Release packages
+YouTubeDownloader-v*.zip
