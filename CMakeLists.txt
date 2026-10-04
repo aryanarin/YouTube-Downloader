@@ -21,6 +21,20 @@ add_executable(YouTubeDownloader
         Window.cpp
         Window.h)
 
+# Embed application icon on Windows
+if(WIN32)
+    # windres's preprocessor breaks on build paths containing spaces when -I flags
+    # are passed, so compile the resource with a custom command without includes.
+    set(APP_RES_OBJ "${CMAKE_CURRENT_BINARY_DIR}/app_res.obj")
+    add_custom_command(OUTPUT "${APP_RES_OBJ}"
+        COMMAND C:/Qt/Tools/mingw1310_64/bin/windres.exe -O coff
+            "${CMAKE_CURRENT_SOURCE_DIR}/app.rc" "${APP_RES_OBJ}"
+        DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/app.rc" "${CMAKE_CURRENT_SOURCE_DIR}/app.ico"
+        COMMENT "Compiling application icon resource"
+    )
+    target_sources(YouTubeDownloader PRIVATE "${APP_RES_OBJ}")
+endif()
+
 target_link_libraries(YouTubeDownloader
         Qt6::Core
         Qt6::Widgets)
